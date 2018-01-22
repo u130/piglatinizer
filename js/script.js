@@ -10,33 +10,35 @@
 $( document ).ready(function() {
   $("button").click(function(){
     var message=$("input").val();
-    var latinizedmessege = latinizer(message);
-$("#message").text(latinizedmessege);    
-});
-
-function latinizer(word){
- return word + " ay ";    
-}
+    var latinizedmessege = sentenceToPigLatin(message);
+    $("#message").text(latinizedmessege); 
+  })
+}); 
 
 
 function latinizer(word){
- return word + " ay ";    
+ return word + "ay";    
 }
-
-
-
-});
 
 
 // Create the wordToPigLatin function that takes a word as a parameter and returns a transfromed word. 
 
 
-
-
-
-
 // Create the sentenceToPigLatin function that takes a sentence as a parameter
 	//Loops through all the words in the sentence and transforms each word
 	//It should return a transfromed sentance
+
+function sentenceToPigLatin(sentence){
+    var pigLatin = sentence.split(' ');
+    for (var i=0;i<pigLatin.length;i++){
+        pigLatin[i] = latinizer(pigLatin[i]);
+    }
+    return pigLatin;
+    
+}
+
+console.log(sentenceToPigLatin("Hello ScriptEd How You doing"));
+
+
 
 

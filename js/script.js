@@ -7,18 +7,31 @@
 // CREATE THE FUNCTIONS BELOW
 
 // Document Ready Function. All of your jQuery should go in here. 
-$( document ).ready(function() {
-  $("button").click(function(){
-    var message=$("input").val();
+ $( document ).ready(function() {  $("button").click(function(){
+    var message=$("input").val();        
     var latinizedmessege = sentenceToPigLatin(message);
     $("#message").text(latinizedmessege); 
-  })
+  });
 }); 
 
 
 function latinizer(word){
- return word + "ay";    
-}
+    var vowels = ["a","e","i","o","u"];
+    vowels.indexOf(word[0])>-1;
+    if(word[0]==="a" || word[0]==="e" || word[0]==="i" || word[0]==="o" || word[0]==="u"){
+        return word + "ay";  
+    } else {
+        var length = word.length;
+        var firstLetter = word.slice(0, 1);
+        var rest = word.slice(1, length);         
+        var newTransformation = rest + firstLetter + "ay";
+        return newTransformation;         
+        word = word.substring(0, 1);
+        word = word + firstLetter + "ay";
+        }  
+//} 
+
+
 
 
 // Create the wordToPigLatin function that takes a word as a parameter and returns a transfromed word. 
@@ -38,7 +51,6 @@ function sentenceToPigLatin(sentence){
 }
 
 console.log(sentenceToPigLatin("Hello ScriptEd How You doing"));
-
 
 
 
